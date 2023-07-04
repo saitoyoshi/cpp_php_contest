@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ "$1" = o ];then
+    oj t && oj s a.cpp
+    exit
+fi
+if [ -f $1 ];then
+    FILE=$1
+fi
+if [ $# -eq 0 ]; then
+    FILE=a.cpp
+fi
+g++ $FILE && oj t && oj s $FILE
