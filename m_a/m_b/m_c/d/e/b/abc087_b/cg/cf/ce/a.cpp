@@ -12,16 +12,20 @@ int main() {
 
   // ここにプログラムを追記
   // (ここで"試合結果の表"の2次元配列を宣言)
-  vector<vector<int>> table(N,vector<int> (N,'-'));
-  rep(i,M) {
-    rep(j,M) {
-      table.at(A.at(i)).at(B.at(j)) = 'o';
-      table.at(B.at(i)).at(A.at(j)) = 'x';
-    }
+  vector<vector<char>> table(N, vector<char>(N, '-'));
+
+  rep(i, M) {
+    table.at(A.at(i) - 1).at(B.at(i) - 1) = 'o';
+    table.at(B.at(i) - 1).at(A.at(i) - 1) = 'x';
   }
-  rep(i,N) {
+  rep(i, N) {
     rep(j, N) {
       cout << table.at(i).at(j);
+      if (j == N - 1) {
+        cout << endl;
+      } else {
+        cout << " ";
+      }
     }
   }
 }
