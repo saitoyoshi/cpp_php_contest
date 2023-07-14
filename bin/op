@@ -1,0 +1,4 @@
+#!/bin/bash
+
+
+oj t -c "php a.php" && oj s a.php
