@@ -11,7 +11,7 @@ int main()
   vector<int> arr = {1,2,3,4,5,6};
   int S = 15;
   int cnt = 0;
-  for (int i = 0; i < (1 << 6); i++) {
+  for (int i = 0; i < (1 << arr.size()); i++) {
     int sum = 0;
     for (int j = 0; j < N; j++) {
       if (i & (1 << j)) {
