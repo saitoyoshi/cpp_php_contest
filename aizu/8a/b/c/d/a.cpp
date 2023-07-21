@@ -4,7 +4,7 @@ using namespace std;
 
 string rotate(string & s) {
   if (s.empty()) return s;
-  return s.back() + s.substr(0,s.size()-1);
+  return s.at(s.size()-1) + s.substr(0,s.size()-1);
 }
 int main()
 {
