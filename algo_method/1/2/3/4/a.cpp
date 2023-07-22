@@ -11,6 +11,7 @@ int main()
   rep(i,N) {
     cin >> A[i];
   }
+  sort(A, A+N);
   rep(i,M) {
     cin >> B[i];
   }
