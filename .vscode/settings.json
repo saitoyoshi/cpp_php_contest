@@ -87,5 +87,8 @@
     "typeinfo": "cpp",
     "valarray": "cpp",
     "variant": "cpp"
+  },
+  "emmet.includeLanguages": {
+    "php": "html"
   }
 }
