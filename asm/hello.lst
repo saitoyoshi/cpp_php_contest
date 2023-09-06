@@ -1,0 +1,21 @@
+     1                                  bits 64
+     2                                  section .text
+     3                                  global _start
+     4                                  
+     5                                  _start:
+     6 00000000 31C0                      xor eax, eax
+     7 00000002 89C2                      mov edx, eax
+     8 00000004 FFC0                      inc eax
+     9 00000006 B20D                      mov dl, len
+    10 00000008 48BE-                     mov rsi, msg
+    10 0000000A [0000000000000000] 
+    11 00000012 0F05                      syscall
+    12 00000014 31FF                      xor edi, edi
+    13 00000016 89F8                      mov eax, edi
+    14 00000018 B03C                      mov al, 60
+    15 0000001A 0F05                      syscall
+    16                                  
+    17                                  section .data
+    18 00000000 68656C6C6F2C20776F-       msg db 'hello, world', 0x0A
+    18 00000009 726C640A           
+    19                                    len equ $ - msg
