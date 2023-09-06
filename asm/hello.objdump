@@ -1,0 +1,18 @@
+
+hello:     ファイル形式 elf64-x86-64
+
+
+セクション .text の逆アセンブル:
+
+0000000000401000 <.text>:
+  401000:	31 c0                	xor    eax,eax
+  401002:	89 c2                	mov    edx,eax
+  401004:	ff c0                	inc    eax
+  401006:	b2 0d                	mov    dl,0xd
+  401008:	48 be 00 20 40 00 00 	movabs rsi,0x402000
+  40100f:	00 00 00 
+  401012:	0f 05                	syscall 
+  401014:	31 ff                	xor    edi,edi
+  401016:	89 f8                	mov    eax,edi
+  401018:	b0 3c                	mov    al,0x3c
+  40101a:	0f 05                	syscall 
