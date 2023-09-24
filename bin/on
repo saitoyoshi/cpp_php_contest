@@ -1,0 +1,3 @@
+#!/bin/bash
+
+oj t -c "node a.js" && oj s a.js -l 5009
