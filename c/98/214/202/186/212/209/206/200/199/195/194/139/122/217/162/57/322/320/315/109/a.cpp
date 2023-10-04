@@ -1,0 +1,11 @@
+#include "bits/stdc++.h"
+#define rep(i,n) for (int i = 0; i < (int)(n); i++)
+using namespace std;
+
+int main()
+{
+  int a,b;
+  cin>>a>>b;
+  cout<<((a*b%2==1)? "Yes":"No")<<endl;
+  return 0;
+}
