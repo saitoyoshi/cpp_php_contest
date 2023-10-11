@@ -1,3 +1,22 @@
+(defun check-number (n)
+  (case (signum n)
+    ((1) (format t "p"))
+    ((-1) (format t "m"))
+    ((0) (format t "z"))
+    (otherwise (format t "ho"))))
+; (defun c-n-c (n)
+;   (case n
+;   ((> 0) (format t "se"))
+;   ((0) (format t "ze"))
+;   ((< 0) (format t "fu"))
+;   (otherwise (format t "muko"))))
+
+; (defun ccase n
+;   (case n)
+;   (> 0) (format t "sei")
+;   (< 0) (format t "fu")
+;   (= 0) (format t "zero")
+;   (otherwise (format t "hoka")))
 (defparameter *small* 1)
 (defparameter *big* 100)
 
@@ -16,6 +35,12 @@
 ; シングルキュートでエスケープ
 ; コードモード、データモード
 ; 他のコンスセル、それ以外のlispデータ
+; (defun c-n (n)
+;   (case (signum n)
+;     (1 (format t "se"))
+;     (0 (format t "zee"))
+;     (-1 (format t "fu"))
+;     (t (format t "mukou"))))
 ; リストの先頭要素が特別なコマンドになっている
 ; 最初の要素以外はすべて先頭のコマンドの引数になる
 ; コンスセル
@@ -72,5 +97,21 @@
 
 ; (defun start-over ()
 ;   (defparameter *small* 1)
+; (defun check-number (n)
+;   (cond ((> n 0) (format t "p"))
+;         ((< n 0) (format t "m"))
+;         (t (format t "z"))))
+
 ;   (defparameter *big* 100)
 ;   (guess-my-number))
+
+
+; (defun cn (n)
+;   (cond ((> n 0) (format t "p"))
+;   ((< n 0) (format t "m"))
+;   (t (format t "z"))))
+
+; (defun cnn (n)
+;   (cond ((> n 0) '(1))
+;   ((< n 0) '(-1))
+;   (t '(0))))
