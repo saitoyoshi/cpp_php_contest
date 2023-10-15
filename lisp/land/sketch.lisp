@@ -1,3 +1,51 @@
+(defun cn (n)
+  (cond ((> n 0) '+)
+        ((< n 0) '-)
+        (t '0)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+; (defun chc (n)
+;   (case (signum n)
+;     ((1) (format t "p"))
+;     ((-1) (format t "m"))
+;     ((0) (format t "0"))
+;     (otherwise (format t "hoka"))))
+; 独立した単語
+; シングルクオートでカッコをエスケープ
+; 整数が汚染され、浮動小数点数になる
+; ひとつめのスロットにあルア帯
+; (defparameter *s* 1)
+; (defparameter *b* 100)
+; (defun gmn ()
+;   (ash (+ *s* *b*) -1))
+; (defun b ()
+;   (setf *s* (1+ (gmn)))
+;     (gmn))
+; (defun s ()
+;   (setf *b* (1- (gmn)))
+;     (gmn))
+; (defun so ()
+;   (defparameter *s* 1)
+;   (defparameter *b* 100)
+;   (gmn))
+
+
 ; 1つ目のスロット
 ; (defparameter *s* 1)
 ; (defparameter *b* 100)
