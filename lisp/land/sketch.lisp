@@ -1,7 +1,24 @@
-(defun cn (n)
-  (cond ((> n 0) '+)
-        ((< n 0) '-)
-        (t '0)))
+(defparameter *s* 1)
+(defparameter *b* 100)
+
+(defun gmn ()
+  (ash (+ *s* *b*) -1))
+
+(defun b ()
+  (setf *s* (1+ (gmn)))
+  (gmn))
+(defun s ()
+  (setf *b* (1- (gmn)))
+  (gmn))
+(defun st ()
+  (defparameter *s* 1)
+  (defparameter *b* 100)
+  (gmn))
+  ; 【】をつかってコードをリストにする
+; (defun cn (n)
+;   (cond ((> n 0) '+)
+;         ((< n 0) '-)
+;         (t '0)))
 
 
 
