@@ -1,7 +1,22 @@
-(defun cn (n)
-  (cond ((> n 0) 'sei)
-  ((< n 0) 'fu)
-  (t 0)))
+(defun ch (n)
+  (case (signum n)
+  ((1) 'se)
+  ((-1) 'fun)
+  ((0) 'ze)
+  (otherwise 'ng)))
+; (defun ch (n)
+;   (case n
+;     ((> n 0) 'sei)
+;     ((< n 0) 'fu)
+;     (t 'zero)))
+; (defparameter *s* 1)
+; (defparameter *b* 100)
+; ２つのものを指す、他のコンスセル、リスプデータをさせる
+; ２つ、コンスセル、連なった
+; (defun cn (n)
+;   (cond ((> n 0) 'sei)
+;   ((< n 0) 'fu)
+;   (t 0)))
 ; (defparameter *s* 1)
 ; (defparameter *b* 100)
 ; コード、でーた　
