@@ -3,12 +3,16 @@
     0
     (+ 1 (len (rest xs)))))
 
-(defun join (xs ys)
+(defun join-2 (xs ys)
   (if (null xs)
-    ys
-    (cons (first xs)
-          (join (rest xs) ys))))
-
+      ys
+      (cons (first xs)
+            (join-2 (rest xs) ys))))
+(defun join (&rest xs)
+  (if (null xs)
+    nil
+    (join-2 (first xs)
+            (apply #'join (rest xs)))))
 (defun rev (xs)
   (if (null (rest xs))
     xs
