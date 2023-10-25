@@ -79,3 +79,18 @@
 
 (defun len<= (xs ys)
   (if (and xs ys) (len<= (rest xs) (rest ys)) (not xs)))
+
+(defun join* (&rest xs)
+  (apply #'join
+    (mapcar #'(lambda (x)
+      (if (atom x)
+          (cons x nil)
+          x))
+          xs)))
+(defun _flat (x)
+  (if (atom x) x (flat x)))
+
+(defun flat (xs)
+  (apply #'join* (mapcar #'_flat xs)))
+
+(defun flat* (&rest xs) (flat xs))
