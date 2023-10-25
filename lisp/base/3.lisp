@@ -23,3 +23,11 @@
   (cond ((<= lim year) (list (list 'remainig 'debt debt 'sum sum)))
         ((<= (* debt rate) pay) (cons (cons year debt) (list (list 'last 'installment (* debt rate) 'sum (+ sum (* debt rate))))))
         (t (cons (cons year debt) (banker (- (* debt rate) pay) pay rate (+ sum pay) (+ year 1) lim)))))
+; (defun banker-model2 (debt r ps &optional) (sum 0) (year 0))
+;   (let ((pay (first ps)))
+;     (cond
+;       ((null pay) (cons (cons year debt) (list (list 'bunkrupt '- 'remaining 'debt (* debt r) 'sum sum))))
+;       ((<= (* debt r) pay) (cons (cons year debt) (list (list 'last 'installment (* debt r) 'sum (+ sum (* debt r))))))
+;       (t (cons (cons year debt) (banker-model2 (- (* debt r) pay) r (rest ps) (+ sum pay) (+ year 1))))))
+
+(defun banker-model2 (debt r ps &optional (sum 0) (year 0)) (let ((pay (first ps))) (cond ((null pay) (cons (cons year debt) (list (list 'bunkrupt '- 'remaining 'debt (* debt r) 'sum sum)))) ((<= (* debt r) pay) (cons (cons year debt) (list (list 'last 'installment (* debt r) 'sum (+ sum (* debt r)))))) (t (cons (cons year debt) (banker-model2 (- (* debt r) pay) r (rest ps) (+ sum pay) (+ year 1)))))))

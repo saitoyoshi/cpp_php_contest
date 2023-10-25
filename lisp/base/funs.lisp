@@ -64,3 +64,18 @@
           (_max f (rest xs)))
         (t
           (first xs))))
+
+(defun skip (n xs)
+  (if (= n 0) xs (skip (- n 1) (rest xs))))
+
+(defun take (n xs)
+  (if (= n 0) nil (cons (first xs) (take (- n 1) (rest xs)))))
+
+(defun slice (m n xs)
+  (take (+ n (- m) 1) (skip (- m 1) xs)))
+
+(defun len< (xs ys)
+  (if (and xs ys) (len< (rest xs) (rest ys)) ys))
+
+(defun len<= (xs ys)
+  (if (and xs ys) (len<= (rest xs) (rest ys)) (not xs)))
