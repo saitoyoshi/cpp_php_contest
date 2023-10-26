@@ -1,9 +1,11 @@
-(defun ch (n)
-  (case (signum n)
-  ((1) 'se)
-  ((-1) 'fun)
-  ((0) 'ze)
-  (otherwise 'ng)))
+; 第２の
+; 組み込み機能が豊富、言語の深いところをいじれる
+; (defun ch (n)
+;   (case (signum n)
+;   ((1) 'se)
+;   ((-1) 'fun)
+;   ((0) 'ze)
+;   (otherwise 'ng)))
 ; (defun ch (n)
 ;   (case n
 ;     ((> n 0) 'sei)
