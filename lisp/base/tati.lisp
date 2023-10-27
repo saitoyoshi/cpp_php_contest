@@ -1,0 +1,8 @@
+(defun f (xs)
+  (cond ((null xs) nil)
+        ((evenp (first xs)) (let ((val (f (rest xs)))) (cons (first xs) val)))
+        (t (let ((val (f (rest xs)))) val))))
+(defun g (xs)
+  (cond ((null xs) (values nil))
+        ((evenp (first xs)) (multiple-value-bind (val) (g (rest xs)) (values (cons (first xs) val))))
+        (t (multiple-value-bind (val) (g (rest xs)) (values val)))))
