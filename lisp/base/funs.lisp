@@ -94,3 +94,8 @@
   (apply #'join* (mapcar #'_flat xs)))
 
 (defun flat* (&rest xs) (flat xs))
+
+(defun q-sort (f xs)
+  (if (null xs) nil (let ((u (thru #'(lambda (x) (funcall f (first xs) x)) (rest xs)))
+    (d (thru #'(lambda (x) (not (funcall f (first xs) x))) (rest xs))))
+    (join (q-sort f d) (cons (first xs) nil) (q-sort f u)))))

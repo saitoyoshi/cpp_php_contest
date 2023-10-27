@@ -1,0 +1,40 @@
+; (defun d (f)
+;   #'(lambda (x)
+;     (/ (- (funcall f (+ x 0.1))
+;         (funcall f (- x 0.1)))
+;         0.2)))
+(defun generate-counter (cycle x)
+  #'(lambda (z)
+    (case z
+      (increase
+        (setq x (mod (+ x 1) cycle)))
+        (value x))))
+(defun p-numbers (xs)
+  (if (null xs) nil (cons (first xs) (p-numbers
+    (thru #'(lambda (x)
+      (/= (mod x (first xs)) 0)) xs)))))
+(defun exist (x xs)
+  (_or (mapcar #'(lambda (z) (equal x z)) xs)))
+
+(defun -set (xs ys)
+  (thru #'(lambda (x) (not (exist x ys))) xs))
+
+(defun and-set (xs ys)
+  (thru #'(lambda (x) (exist x ys)) xs))
+
+(defun +set (xs ys)
+  (join (-set xs ys) (and-set xs ys) (-set ys xs)))
+(defun +set2 (xs ys)
+  (join xs (-set ys xs)))
+; ((defun q-sort (xs)
+;   (let ((u (thru #'(lambda (x) (<= (first xs) x))
+;    (rest xs)))
+;         (d (thru #'(lambda (x) (< x (first xs))) (rest xs))))
+;         (if (null xs) nil (join (q-sort d)
+;                                 (cons (first xs) nil)
+;                                 (q-sort s))))))
+
+(defun q-sort (f xs)
+  (if (null xs) nil (let ((u (thru #'(lambda (x) (funcall f (first xs) x)) (rest xs)))
+    (d (thru #'(lambda (x) (not (funcall f (first xs) x))) (rest xs))))
+    (join (q-sort f d) (cons (first xs) nil) (q-sort f u)))))
