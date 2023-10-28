@@ -112,3 +112,16 @@
     ((< b a) (rand b a))
     ((or (floatp a) (floatp b)) (+ (float a) (random (- (float b) (float a)))))
     (t (+ a (random (+ b -a 1)))))))
+
+(defun string->list (str)
+  (coerce str 'list))
+
+(defun list->string (xs)
+  (coerce xs 'string))
+
+(defun to-small (str)
+  (list->string
+    (mapcar #'char-downcase
+      (string->list str))))
+(defun symbol->string (x)
+  (to-small (symbol-name x)))
