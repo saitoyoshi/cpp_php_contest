@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+    <style>
+        .highlight {
+            color:yellow;
+        }
+        .newHighlight {
+            color:green;
+        }
+    </style>
+</head>
+<body>
+    <div id="target">Hello,World!</div>
+    <ul id="myList"></ul>
+    <p id="myPara" class="highlight">This is a paragraph.</p>
+    <button id="myButton">Click me</button>
+</body>
+<script>
+    const div = document.querySelector('#target');
+    console.log(div);
+    div.textContent = 'こんにちは、世界！';
+    const myList = document.querySelector("#myList");
+    const li1 = document.createElement('li');
+    const li2 = document.createElement('li');
+    li1.textContent = 'Item 1';
+    li2.textContent = 'Item 2';
+    div.appendChild(li1);
+    div.appendChild(li2);
+    const myPara = document.querySelector('#myPara');
+    myPara.classList.remove('highlight');
+    myPara.classList.add('newHighlight');
+    const myButton = document.querySelector("#myButton");
+    myButton.addEventListener('click', () => console.log('clicked'));
+</script>
+</html>
