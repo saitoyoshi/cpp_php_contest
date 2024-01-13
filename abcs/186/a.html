@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #changeMyStyle {
+            background-color: re;
+        } */
+    </style>
+</head>
+<body>
+    <div id="myElem">test</div>
+    <div id="removeMe">remove me</div>
+    <div id="changeMyStyle">change my style</div>
+</body>
+<script>
+    const myElem = document.getElementById('myElem');
+    console.log(myElem);
+    const para = document.createElement('p');
+    para.textContent = 'Hello,world!';
+    document.body.appendChild(para);
+    const removeMe = document.getElementById('removeMe');
+    document.body.removeChild(removeMe);
+    const changeMyStyle = document.getElementById('changeMyStyle');
+    changeMyStyle.style.backgroundColor = 'red';
+</script>
+</html>

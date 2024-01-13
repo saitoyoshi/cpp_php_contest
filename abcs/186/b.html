@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <p>2</p> -->
+    <p id="text">para</p>
+    <button id="jsstyle">click</button>
+
+    <form action="" id="form1">
+        <label for=""><input type="text" value="first" id="first"></label>
+        <label for=""><input type="text" value="last" id="last"></label>
+        <button id="formBtn">formBtn</button>
+    </form>
+    <a class="googlelink" href="https://www.google.com">google</a>
+    <table border="1" id="sampleTable">
+        <tr>
+            <th>1</th>
+            <th>2</th>
+        </tr>
+        <tr><td>tes1</td>
+    <td>tes2</td></tr>
+    </table>
+    <form action="" id="form2">
+        <button id="insert_row" type="button">insert_Row</button>
+    </form>
+</body>
+<script>
+    const para = document.getElementById('text');
+    const button = document.getElementById('jsstyle');
+    button.addEventListener('click', function () {
+        para.style.fontStyle ='italic';
+        para.style.fontSize = '32px';
+        para.style.color = 'green';
+    });
+    const formBtn = document.getElementById('formBtn');
+    formBtn.addEventListener('click', function() {
+        const firstName = document.getElementById('first');
+        const lastName = document.getElementById('last');
+        alert(firstName.value + ' ' + lastName.value);
+    });
+    const googlelink = document.querySelector('.googlelink');
+    console.log(googlelink.href);
+    const insertRow = document.getElementById('insert_row');
+    insertRow.addEventListener('click',function() {
+        const table = document.getElementById('sampleTable');
+        const tr = document.createElement('tr');
+        const td1 = document.createElement('td');
+        td1.textContent = 'td1';
+        const td2 = document.createElement('td');
+        td2.textContent = 'td2';
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        table.appendChild(tr);
+    });
+    window.addEventListener('resize', function() {
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        console.log("windowの横幅は: " + w);
+        console.log("windowの縦幅は: " + h);
+    });
+</script>
+</html>
