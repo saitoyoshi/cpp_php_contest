@@ -1,27 +1,33 @@
-main(require('fs').readFileSync('/dev/stdin','utf8'))
+main(require('fs').readFileSync('/dev/stdin', 'utf8'))
 
 
 function main(input) {
-  const [N,k] = input.trim().split(' ').map(Number);
-  let t = N;
-  if (k === 0) {
-      console.log(N);
-  } else {
-      for (let i = 0; i < k; i++) {
-
-        t = f(t);
-      }
+    const [N, k] = input.trim().split(' ').map(Number);
+    if (N === 0) {
+        return console.log(0);
     }
-      console.log(t);
-  }
+    let t = N;
+    if (k === 0) {
+        console.log(N);
+    } else {
+        for (let i = 0; i < k; i++) {
+
+            t = f(t);
+        }
+    }
+    console.log(t);
+}
+
 function f(x) {
-  return g1(x)-g2(x);
+    return g1(x) - g2(x);
 }
+
 function g1(x) {
-  const str = x.toString();
-  return Number(str.split('').map(Number).sort((a,b)=>b-a).join(''));
+    const str = x.toString();
+    return Number(str.split('').map(Number).sort((a, b) => b - a).join(''));
 }
+
 function g2(x) {
-  const str = x.toString();
-  return Number(str.split('').map(Number).sort((a,b)=>a-b).join(''));
+    const str = x.toString();
+    return Number(str.split('').map(Number).sort((a, b) => a - b).join(''));
 }
